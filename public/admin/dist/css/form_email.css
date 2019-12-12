@@ -1,0 +1,20 @@
+.main {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+    box-sizing:border-box;
+    background-color:#f8fafc;
+    color:#74787e;
+    height:100%;
+    line-height:1.4;
+    margin:0;
+    width:100%!important;
+    word-break:break-word
+}
+
+#table_mail{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+    box-sizing:border-box;
+    background-color:#f8fafc;
+    margin:0;
+    padding:0;
+    width:100%
+}
