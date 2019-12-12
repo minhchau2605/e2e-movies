@@ -77,7 +77,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Movie</a></li>
+                    <li><a href="{{ route('show.movie.manager') }}"><i class="fa fa-circle-o"></i> Movie</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> Category</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> Actor</a></li>
                 </ul>

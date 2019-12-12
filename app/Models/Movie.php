@@ -13,6 +13,8 @@ class Movie extends Model
         'company_id',
         'country_id',
         'name',
+        'thumbnail',
+        'trailer_url',
         'release_date',
         'type',
         'number_of_episodes',
@@ -26,4 +28,15 @@ class Movie extends Model
         'imdb_score',
         'aw_score',
     ];
+
+    /**
+     * Get all movie paginate
+     * @return mixed
+     */
+    public static function getAllMoviePaginate(){
+        $movies = Movie::orderBy('created_at', 'DESC')->paginate('10');
+
+        if(!empty($movies))
+            return $movies;
+    }
 }

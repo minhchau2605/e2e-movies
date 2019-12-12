@@ -19,7 +19,6 @@ class IndexController extends Controller
 
     public function showLogin(){
         if (Auth::check()) {
-            //return redirect()->route('admin');
             return view('admin.layouts.master');
         } else {
             return view('admin.pages.login');

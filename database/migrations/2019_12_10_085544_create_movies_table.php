@@ -19,6 +19,8 @@ class CreateMoviesTable extends Migration
             $table->integer('company_id')->unsigned()->nullable();
             $table->integer('country_id')->unsigned()->nullable();
             $table->string('name');
+            $table->string('thumbnail')->nullable();
+            $table->string('trailer_url')->nullable();
             $table->date('release_date')->nullable();
             $table->string('type');
             $table->integer('number_of_episodes')->nullable();

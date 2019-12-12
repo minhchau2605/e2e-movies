@@ -20,7 +20,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
     Route::get('/index','Admin\IndexController@showAdminIndex')->name('show.admin.index');
 
     Route::group(['prefix' => 'movie'], function(){
-
+        Route::get('/','Admin\MovieController@showMovieManager')->name('show.movie.manager');
     });
     Route::group(['prefix' => 'category'], function(){
 
