@@ -12,3 +12,20 @@
 */
 
 Route::get('/','User\IndexController@index')->name('index');
+Route::get('admin/login','Admin\IndexController@showLogin')->name('login');
+Route::post('admin/login','Admin\IndexController@loginHandle')->name('login.handle');
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
+    Route::get('/logout','Admin\IndexController@logout')->name('logout');
+    Route::get('/index','Admin\IndexController@showAdminIndex')->name('show.admin.index');
+
+    Route::group(['prefix' => 'movie'], function(){
+
+    });
+    Route::group(['prefix' => 'category'], function(){
+
+    });
+    Route::group(['prefix' => 'actor'], function(){
+
+    });
+});
