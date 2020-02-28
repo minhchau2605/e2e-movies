@@ -21,6 +21,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
 
     Route::group(['prefix' => 'movie'], function(){
         Route::get('/','Admin\MovieController@showMovieManager')->name('show.movie.manager');
+        Route::get('/detail/{id}','Admin\MovieController@detailMovie')->name('detail.movie');
     });
     Route::group(['prefix' => 'category'], function(){
 

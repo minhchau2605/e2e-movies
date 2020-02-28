@@ -37,3 +37,5 @@
 <script src="{{ asset('admin/dist/js/demo.js') }}"></script>
 <!-- Custom script -->
 <script src="{{ asset('admin/dist/js/custom.js') }}"></script>
+<!-- Vue -->
+<script src="{{ asset('js/app.js') }}"></script>

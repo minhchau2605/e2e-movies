@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" id="app">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
@@ -25,6 +25,9 @@
                                 <div id="edit_exam_name"><input id="input_exam_name" class="form-control" type="text" value="" style="float: left; width: 50%; margin-right: 10px"></div>
                                 <div class="btn btn-primary">Search</div>
                             </div>
+                            <div class="col-md-8">
+                                <button type="submit" class="btn btn-success">Add</button>
+                            </div>
                         </div>
                         <div style="width: 60%; padding-left: 10px">
                             @if (session('delete_status'))
@@ -39,27 +42,29 @@
                                 <tr>
                                     <th style="width: 3%">ID</th>
                                     <th style="width: 10%">Name</th>
+                                    <th style="width: 10%">Thumbnail</th>
                                     <th style="width: 5%">Director</th>
                                     <th style="width: 5%">Company</th>
                                     <th style="width: 5%">Country</th>
                                     <th style="width: 5%">Release Date</th>
                                     <th style="width: 5%">Type</th>
-                                    <th style="width: 5%">Episodes</th>
-                                    <th style="width: 5%">Update Episode</th>
+                                    <th style="width: 3%">Episodes</th>
+                                    <th style="width: 3%">Update Episode</th>
                                     <th style="width: 5%">Length</th>
                                     <th style="width: 5%">Quality</th>
                                     <th style="width: 5%">Subtitle</th>
                                     <th style="width: 5%">View</th>
+                                    <th style="width: 3%">User Rating</th>
+                                    <th style="width: 3%">Imdb Score</th>
+                                    <th style="width: 3%">AW Score</th>
                                     <th style="width: 5%">Status</th>
-                                    <th style="width: 5%">User Rating</th>
-                                    <th style="width: 5%">Imdb Score</th>
-                                    <th style="width: 5%">AW Score</th>
                                     <th style="width: 15%">Action</th>
                                 </tr>
                                 @foreach($movies as $movie)
                                     <tr>
                                         <td>{{ $movie->id }}</td>
                                         <td>{{ $movie->name }}</td>
+                                        <td><img alt="" style="height: 100px; width: 100px;" src="{{ $movie->thumbnail }}"></td>
                                         <td>{{ $movie->director_name }}</td>
                                         <td>{{ $movie->company_name }}</td>
                                         <td>{{ $movie->country_name }}</td>
@@ -71,6 +76,9 @@
                                         <td>{{ $movie->quality }}</td>
                                         <td>{{ $movie->subtitle }}</td>
                                         <td>{{ $movie->view }}</td>
+                                        <td>{{ $movie->user_rating }}</td>
+                                        <td>{{ $movie->imdb_score }}</td>
+                                        <td>{{ $movie->aw_score }}</td>
                                         <td>
                                             @if($movie->status == 1)
                                                 Hoàn thành
@@ -78,20 +86,19 @@
                                                 Chưa hoàn thành
                                             @endif
                                         </td>
-                                        <td>{{ $movie->user_rating }}</td>
-                                        <td>{{ $movie->imdb_score }}</td>
-                                        <td>{{ $movie->aw_score }}</td>
                                         <td>
-                                            <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                                            <button class="btn btn-info btn-sm" onclick="editMovie()"><i class="fa fa-edit"></i> Edit</button>
+                                            {{--<a href="detail({{$q->id}})" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>--}}
                                             <form action="#" style="display: inline" method="post">
                                                 @csrf
                                                 <input type="hidden" value="#" name="mall_function_id">
-                                                <a href="#" onclick="return confirm('Are you sure delete the mall function?')"
+                                                <a href="#" onclick="return confirm('Are you sure delete the movie ?')"
                                                    class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> Delete
                                                 </a>
                                             </form>
                                         </td>
                                     </tr>
+                                    <edit-movie :item="{{ $movie }}"></edit-movie>
                                 @endforeach
                             </table>
                         </div>
@@ -144,5 +151,4 @@
         </section>
         <!-- /.content -->
     </div>
-
 @endsection
