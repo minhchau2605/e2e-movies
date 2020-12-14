@@ -17,6 +17,10 @@ class IndexController extends Controller
         return view('admin.pages.index');
     }
 
+    /**
+     * Show login page
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showLogin(){
         if (Auth::check()) {
             return view('admin.layouts.master');
@@ -26,9 +30,9 @@ class IndexController extends Controller
     }
 
     /**
-     * Handle Login
+     * Handle login admin
      * @param LoginRequest $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function loginHandle(LoginRequest $request)
     {

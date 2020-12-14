@@ -15,6 +15,18 @@ Route::get('/','User\IndexController@index')->name('index');
 Route::get('admin/login','Admin\IndexController@showLogin')->name('login');
 Route::post('admin/login','Admin\IndexController@loginHandle')->name('login.handle');
 
+//Route::get('admin/movie/{any}', function () {
+//    return view('admin.pages.movies.movie');
+//})->where('any', '.*');
+
+//Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
+//    Route::get('/logout','Admin\IndexController@logout')->name('logout');
+//    Route::get('/index','Admin\IndexController@showAdminIndex')->name('show.admin.index');
+//    Route::group(['prefix' => 'movie'], function(){
+//        Route::get('/','Admin\MovieController@showMovieManager')->name('show.movie.manager');
+//    });
+//});
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
     Route::get('/logout','Admin\IndexController@logout')->name('logout');
     Route::get('/index','Admin\IndexController@showAdminIndex')->name('show.admin.index');
