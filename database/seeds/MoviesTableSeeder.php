@@ -17,9 +17,9 @@ class MoviesTableSeeder extends Seeder
         Movie::truncate();
         Movie::create(
             [
-                'name' => 'Avengers: Endgame',
+                'name_movie' => 'Avengers: Endgame',
                 'release_date' => '2019-04-22',
-                'type' => 'Phim lẻ',
+                'type' => '1',
                 'number_of_episodes' => 1,
                 'length' => 190,
                 'quality' => '1080p',
